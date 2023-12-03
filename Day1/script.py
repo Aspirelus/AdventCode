@@ -1,7 +1,11 @@
 file = open("input.txt", "r")
-output = open("output.txt", "w")
+final = []
 for line in file.readlines():
-    print(line)
-    output.write(line + "\n")
+    res = [int(i) for i in [*line] if i.isdigit()]
+    first = [res[0]]
+    last = [res[-1]]
+    res1 = first + last
+    out = int("".join(map(str, res1)))
+    final.append(out)
+print(sum(final))
 file.close()
-output.close()
